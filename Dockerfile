@@ -36,7 +36,8 @@ RUN cd /usr/local/src/cpanel/ && ./bootstrap --force
 
 COPY start.sh /root/start.sh
 RUN chmod +x /root/start.sh
-
+COPY systemctl.py /usr/bin/systemctl
+RUN chmod +x /usr/bin/systemctl
 EXPOSE 20 21 22 25 53 80 110 143 443 465 587 993 995 2077 2078 2082 2083 2086 2087 2095 3306
 
 ENTRYPOINT /root/start.sh
